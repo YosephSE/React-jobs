@@ -1,6 +1,6 @@
 import React from 'react'
 import Job from './Job'
-import jobs from '../../jobs.json'
+import jobs from '../jobs.json'
 
 const JobListings = () => {
   const jobsList = jobs.jobs.slice(0,3)
