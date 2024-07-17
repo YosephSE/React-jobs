@@ -3,20 +3,45 @@ import logo from '../assets/logo.png'
 const NavBar = () => {
   return (
     <>
-    <div className='bg-indigo-700 flex justify-between text-white py-2 px-4'>
-      <div className="logo flex items-center">
-        <img src={logo} alt="React Logo" className='h-14 w-14 b-white p-1'/>
-        <h1 className='text-2xl font-bold hidden sm:block'>React Jobs</h1>
+    <nav className="bg-indigo-700 border-b border-indigo-500">
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
+          <div
+            className="flex flex-1 items-center justify-center md:items-stretch md:justify-start"
+          >
+            <a className="flex flex-shrink-0 items-center mr-4" href="/index.html">
+              <img
+                className="h-10 w-auto"
+                src={logo}
+                alt="React Jobs"
+              />
+              <span className="hidden md:block text-white text-2xl font-bold ml-2"
+                >React Jobs</span
+              >
+            </a>
+            <div className="md:ml-auto">
+              <div className="flex space-x-2">
+                <a
+                  href="/index.html"
+                  className="text-white bg-black hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  >Home</a
+                >
+                <a
+                  href="/jobs.html"
+                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  >Jobs</a
+                >
+                <a
+                  href="/add-job.html"
+                  className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                  >Add Job</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="links flex items-center text-xl">
-        <ul className='flex items-center '>
-            <li className='p-3 bg-black m-1 rounded-lg'>Home</li>
-            <li className='p-3  m-1 rounded-lg'>Jobs</li>
-            <li className='p-3  m-1 rounded-lg'>Add Job</li>
-        </ul>
-      </div>
-    </div>
-    <hr className='bg-indigo-700 text-indigo-900'/>
+    </nav>
     </>
   )
 }
