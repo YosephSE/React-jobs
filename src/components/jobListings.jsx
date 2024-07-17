@@ -2,8 +2,9 @@ import React from 'react'
 import jobs from '../../jobs.json'
 
 
-const jobListings = () => {
+const JobListings = () => {
     const jobLists = jobs.jobs
+    console.log(jobLists)
   return (
     <section className="bg-blue-50 px-4 py-10">
       <div className="container-xl lg:container m-auto">
@@ -105,4 +106,4 @@ const jobListings = () => {
   )
 }
 
-export default jobListings
+export default JobListings
