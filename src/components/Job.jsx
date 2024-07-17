@@ -1,7 +1,12 @@
-import React from 'react'
+import {useState} from 'react'
 
 
 const Job = ({id ,type, title, desc, salary, location}) => {
+    const [showDetailDesc, setShowDetailDesc] = useState(false)
+    let shortDesc = desc.substring(0, 100) + "..."
+    function toggleShow(){
+        setShowDetailDesc(prev => !prev)
+    }
   return (
     <div className="bg-white rounded-xl shadow-md relative">
           <div className="p-4">
@@ -10,7 +15,8 @@ const Job = ({id ,type, title, desc, salary, location}) => {
               <h3 className="text-xl font-bold">{title}</h3>
             </div>
 
-            <div className="mb-5">{desc}</div>
+            <div className="mb-5">{showDetailDesc ? shortDesc: desc}</div>
+            <button className='text-indigo-500 mb-5 hover:text-indigo-600' onClick={toggleShow}>{shortDesc ? "Less" : "More"}</button>
 
             <h3 className="text-indigo-500 mb-2">{salary}</h3>
 
