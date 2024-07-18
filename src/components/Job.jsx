@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import { FaLocationPin } from 'react-icons/fa6'
-
+import { Link } from 'react-router-dom'
 
 const Job = ({id ,type, title, desc, salary, location}) => {
     const [showDetailDesc, setShowDetailDesc] = useState(false)
@@ -28,12 +28,12 @@ const Job = ({id ,type, title, desc, salary, location}) => {
                 <FaLocationPin className="inline mr-2 mb-1 text-lg" />
                 {location}
               </div>
-              <a
-                href={`/job/${id}`}
+              <Link
+                to={`/job/${id}`}
                 className="h-[36px] bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg text-center text-sm"
               >
                Read More
-              </a>
+              </Link>
             </div>
           </div>
         </div>  
