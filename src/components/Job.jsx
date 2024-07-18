@@ -3,7 +3,7 @@ import { FaLocationPin } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 
 const Job = ({id ,type, title, desc, salary, location}) => {
-    const [showDetailDesc, setShowDetailDesc] = useState(false)
+    const [showDetailDesc, setShowDetailDesc] = useState(true)
     let shortDesc = desc.substring(0, 100) + "..."
     function toggleShow(){
         setShowDetailDesc(prev => !prev)
