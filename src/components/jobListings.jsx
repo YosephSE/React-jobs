@@ -9,8 +9,9 @@ const JobListings = ({ isHome = false }) => {
 
   useEffect(() => {
     const fetchJobs = async () => {
+      const apiUrl = isHome ? "http://localhost:8000/jobs?_limit=3" : "http://localhost:8000/jobs";
       try {
-        const res = await fetch("http://localhost:8000/jobs");
+        const res = await fetch(apiUrl);
         const data = await res.json();
         setJobs(data);
       } catch (e) {
@@ -28,11 +29,12 @@ const JobListings = ({ isHome = false }) => {
         <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
           {isHome ? "Recent Jobs" : "Browse Jobs"}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+       
           {loading ? (
             <Spinner  loading={loading}/>
           ) : (
             <>
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {jobs.map((job) => (
                 <Job
                   id={job.id}
@@ -44,10 +46,10 @@ const JobListings = ({ isHome = false }) => {
                   salary={job.salary}
                 />
               ))}
+              </div>
             </>
           )}
         </div>
-      </div>
     </section>
   );
 };
