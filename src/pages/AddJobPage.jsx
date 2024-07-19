@@ -1,21 +1,41 @@
 import {useState} from "react";
-
-const AddJobPage = () => {
-    const [type, setType] = useState("")
+import { useNavigate } from "react-router-dom";
+const AddJobPage = ({addJobSubmit}) => {
+    const navigate = useNavigate()
+    const [type, setType] = useState("Full-Time")
     const [title, setTitle] = useState("")
     const [desc, setDesc] = useState("")
-    const [salary, setSalary] = useState("")
+    const [salary, setSalary] = useState("Under $50K")
     const [location, setLocation] = useState("")
     const [companyName, setCompanyName] = useState("")
     const [companyDesc, setCompanyDesc] = useState("")
     const [contactEmail, setContactEmail] = useState("")
     const [contactPhone, setContactPhone] = useState("")
+    const submitForm = (e) => {
+        e.preventDefault()
+
+        const newJob = {
+            title,
+            type,
+            location,
+            description: desc,
+            salary,
+            company: {
+                name: companyName,
+                description: companyDesc,
+                contactEmail,
+                contactPhone
+            }
+        }
+        addJobSubmit(newJob)
+        return navigate('/jobs')
+    }
 
   return (
     <section className="bg-indigo-50">
       <div className="container m-auto max-w-2xl py-24">
         <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
-          <form>
+          <form onSubmit={submitForm}>
             <h2 className="text-3xl text-center font-semibold mb-6">Add Job</h2>
 
             <div className="mb-4">
