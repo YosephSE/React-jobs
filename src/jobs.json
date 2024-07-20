@@ -97,6 +97,20 @@
         "contactEmail": "yowanim248@reebsd.com",
         "contactPhone": "09"
       }
+    },
+    {
+      "id": "3b2f",
+      "title": "Sowtare Engineer",
+      "type": "Full-Time",
+      "location": "Bole, Addis Ababa",
+      "description": "We arre looking for a saftware enginner who likes to build fast and robust software solutions.We arre looking for a saftware enginner who likes to build fast and robust software solutions.We arre looking for a saftware enginner who likes to build fast and robust software solutions.We arre looking for a saftware enginner who likes to build fast and robust software solutions.We arre looking for a saftware enginner who likes to build fast and robust software solutions.We arre looking for a saftware enginner who likes to build fast and robust software solutions.",
+      "salary": "$175K - 200K",
+      "company": {
+        "name": "NextTG",
+        "description": "NEXT Technology Group is a leading software as a service provider",
+        "contactEmail": "info@next.com",
+        "contactPhone": "09876543211"
+      }
     }
   ]
 }
