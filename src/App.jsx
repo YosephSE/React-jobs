@@ -22,8 +22,9 @@ const App = () => {
       body: JSON.stringify(newJob)
     })
     return;
-    console.log(newJob)
   }
+
+  
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
