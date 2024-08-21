@@ -5,13 +5,13 @@ import jobs from "./routes/jobs.route";
 import dotenv from "dotenv";
 dotenv.config();
 const app = express();
-
+const port = process.env.PORT || 3000;
 dbconnection();
 app.use(cors());
 app.use(express.json());
 
 app.use("/api/jobs", jobs);
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });

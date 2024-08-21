@@ -1,10 +1,10 @@
 import { Router, Request, Response } from "express";
-import { addJobs } from "../controllers/jobs.controllers";
+import { addJob, allJobs } from "../controllers/jobs.controllers";
 
 const router = Router();
 
+router.get("/", allJobs);
 
-router.get("/", addJobs);
-
+router.post("/", addJob);
 
 export default router;
