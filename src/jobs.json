@@ -85,45 +85,17 @@
       }
     },
     {
-      "id": "7759",
-      "title": "e",
-      "type": "Full-Time",
-      "location": "dfa",
-      "description": "d",
-      "salary": "Under $50K",
+      "id": "8f0c",
+      "title": "Fullstack Developer",
+      "type": "Internship",
+      "location": "Addis Ababa, Ethiopia",
+      "description": "we are in need of full stack developer who can work on a large team ",
+      "salary": "$50K - 60K",
       "company": {
-        "name": "1",
-        "description": "d",
-        "contactEmail": "yowanim248@reebsd.com",
-        "contactPhone": "d"
-      }
-    },
-    {
-      "id": "5c1e",
-      "title": "1",
-      "type": "Full-Time",
-      "location": "1",
-      "description": "1",
-      "salary": "Under $50K",
-      "company": {
-        "name": "1",
-        "description": "1",
-        "contactEmail": "yowanim248@reebsd.com",
-        "contactPhone": "1"
-      }
-    },
-    {
-      "id": "71d5",
-      "title": "1",
-      "type": "Full-Time",
-      "location": "1",
-      "description": "1",
-      "salary": "Under $50K",
-      "company": {
-        "name": "11",
-        "description": "111",
-        "contactEmail": "yowanim248@reebsd.com",
-        "contactPhone": "1"
+        "name": "Next Technology Group",
+        "description": "N",
+        "contactEmail": "yoseph.kedir10@gmail.com",
+        "contactPhone": "0940471384"
       }
     }
   ]
