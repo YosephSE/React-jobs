@@ -1,44 +1,70 @@
-import {useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom"; 
 import { toast } from "react-toastify";
-const AddJobPage = ({editJob}) => {
-    const navigate = useNavigate()
-    const [type, setType] = useState("Full-Time")
-    const [title, setTitle] = useState("")
-    const [desc, setDesc] = useState("")
-    const [salary, setSalary] = useState("Under $50K")
-    const [location, setLocation] = useState("")
-    const [companyName, setCompanyName] = useState("")
-    const [companyDesc, setCompanyDesc] = useState("")
-    const [contactEmail, setContactEmail] = useState("")
-    const [contactPhone, setContactPhone] = useState("")
-    const submitForm = (e) => {
-        e.preventDefault()
 
-        const job = {
-            title,
-            type,
-            location,
-            description: desc,
-            salary,
-            company: {
-                name: companyName,
-                description: companyDesc,
-                contactEmail,
-                contactPhone
-            }
-        }
-        editJob(job)
-        toast.success("Job Updated Successfully")
-        return navigate('/jobs/')
-    }
+const EditJobPage = ({ editJob }) => {
+  const { id } = useParams(); 
+  const navigate = useNavigate();
+  const [type, setType] = useState("Full-Time");
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
+  const [salary, setSalary] = useState("Under $50K");
+  const [location, setLocation] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [companyDesc, setCompanyDesc] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactPhone, setContactPhone] = useState("");
+
+  useEffect(() => {
+    const fetchJob = async () => {
+      try {
+        const res = await fetch(`http://localhost:3000/api/jobs/${id}`);
+        const data = await res.json();
+
+        setTitle(data.title);
+        setType(data.type);
+        setDesc(data.description);
+        setSalary(data.salary);
+        setLocation(data.location);
+        setCompanyName(data.company.name);
+        setCompanyDesc(data.company.description);
+        setContactEmail(data.company.contactEmail);
+        setContactPhone(data.company.contactPhone);
+      } catch (e) {
+        console.log("Error fetching data", e);
+      }
+    };
+
+    fetchJob();
+  }, [id]); // Depend on 'id' so the effect runs when the component mounts or 'id' changes
+
+  const submitForm = (e) => {
+    e.preventDefault();
+
+    const job = {
+      title,
+      type,
+      location,
+      description: desc,
+      salary,
+      company: {
+        name: companyName,
+        description: companyDesc,
+        contactEmail,
+        contactPhone,
+      },
+    };
+    editJob(job);
+    toast.success("Job Updated Successfully");
+    navigate("/jobs/");
+  };
 
   return (
     <section className="bg-indigo-50">
       <div className="container m-auto max-w-2xl py-24">
         <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
           <form onSubmit={submitForm}>
-            <h2 className="text-3xl text-center font-semibold mb-6">Add Job</h2>
+            <h2 className="text-3xl text-center font-semibold mb-6">Edit Job</h2>
 
             <div className="mb-4">
               <label htmlFor="type" className="block text-gray-700 font-bold mb-2">
@@ -146,7 +172,6 @@ const AddJobPage = ({editJob}) => {
                 placeholder="Company Name"
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
-
               />
             </div>
 
@@ -209,7 +234,7 @@ const AddJobPage = ({editJob}) => {
                 className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
                 type="submit"
               >
-                Add Job
+                Update Job
               </button>
             </div>
           </form>
@@ -219,4 +244,4 @@ const AddJobPage = ({editJob}) => {
   );
 };
 
-export default AddJobPage;
+export default EditJobPage;
