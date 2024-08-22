@@ -62,4 +62,21 @@ const singleJob = async (req: Request, res: Response) => {
     res.status(500).json({ error: error });
   }
 };
-export { allJobs, addJob, singleJob };
+
+const deleteJob = async (req: Request, res: Response) => {
+  try {
+    if (!req.params.id) {
+      return res.status(400).json({ error: "Please provide an ID" });
+    } else if (!mongoose.isValidObjectId(req.params.id)) {
+      return res.status(400).json({ error: "Invalid ID" });
+    }
+    const job = await Job.findByIdAndDelete(req.params.id);
+    if (!job) {
+      return res.status(404).json({ error: "Job not found" });
+    }
+    res.json(job);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+}
+export { allJobs, addJob, singleJob, deleteJob };
