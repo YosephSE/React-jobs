@@ -24,8 +24,8 @@ const App = () => {
     });
     return;
   };
-  const editJob = async (job) => {
-    const res = await fetch(`http://localhost:3000/api/jobs/edit/${id}`, {
+  const editJob = async (job, id) => {
+    const res = await fetch(`http://localhost:3000/api/jobs/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

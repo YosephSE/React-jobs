@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom"; 
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const EditJobPage = ({ editJob }) => {
-  const { id } = useParams(); 
+  const { id } = useParams();
   const navigate = useNavigate();
   const [type, setType] = useState("Full-Time");
   const [title, setTitle] = useState("");
@@ -54,7 +54,7 @@ const EditJobPage = ({ editJob }) => {
         contactPhone,
       },
     };
-    editJob(job);
+    editJob(job, id);
     toast.success("Job Updated Successfully");
     navigate("/jobs/");
   };
@@ -64,10 +64,15 @@ const EditJobPage = ({ editJob }) => {
       <div className="container m-auto max-w-2xl py-24">
         <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
           <form onSubmit={submitForm}>
-            <h2 className="text-3xl text-center font-semibold mb-6">Edit Job</h2>
+            <h2 className="text-3xl text-center font-semibold mb-6">
+              Edit Job
+            </h2>
 
             <div className="mb-4">
-              <label htmlFor="type" className="block text-gray-700 font-bold mb-2">
+              <label
+                htmlFor="type"
+                className="block text-gray-700 font-bold mb-2"
+              >
                 Job Type
               </label>
               <select
@@ -119,7 +124,10 @@ const EditJobPage = ({ editJob }) => {
             </div>
 
             <div className="mb-4">
-              <label htmlFor="type" className="block text-gray-700 font-bold mb-2">
+              <label
+                htmlFor="type"
+                className="block text-gray-700 font-bold mb-2"
+              >
                 Salary
               </label>
               <select
@@ -145,7 +153,9 @@ const EditJobPage = ({ editJob }) => {
             </div>
 
             <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">Location</label>
+              <label className="block text-gray-700 font-bold mb-2">
+                Location
+              </label>
               <input
                 type="text"
                 id="location"
@@ -161,7 +171,10 @@ const EditJobPage = ({ editJob }) => {
             <h3 className="text-2xl mb-5">Company Info</h3>
 
             <div className="mb-4">
-              <label htmlFor="company" className="block text-gray-700 font-bold mb-2">
+              <label
+                htmlFor="company"
+                className="block text-gray-700 font-bold mb-2"
+              >
                 Company Name
               </label>
               <input
