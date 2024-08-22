@@ -4,7 +4,9 @@ import { Request, Response } from "express";
 
 const allJobs = async (req: Request, res: Response) => {
   try {
-    const jobs = await Job.find();
+    const limit = parseInt(req.query.limit as string) || 100;
+
+    const jobs = await Job.find().limit(limit);
     res.json(jobs);
   } catch (error) {
     res.status(500).json({ error: error });
