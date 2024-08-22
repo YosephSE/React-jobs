@@ -1,5 +1,5 @@
 import React from "react";
-import { ClipLoader } from "react-spinners";
+import { RotateLoader } from "react-spinners";
 
 const Spinner = ({ loading }) => {
   const overRide = {
@@ -7,11 +7,11 @@ const Spinner = ({ loading }) => {
     margin: "100px auto",
   };
   return (
-    <ClipLoader
+    <RotateLoader
       color="#4338ca"
       loading={loading}
       cssOverride={overRide}
-      size={150}
+      size={20}
     />
   );
 };
