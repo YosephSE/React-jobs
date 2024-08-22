@@ -80,5 +80,33 @@ const deleteJob = async (req: Request, res: Response) => {
   } catch (error) {
     res.status(500).json({ error: error });
   }
-}
-export { allJobs, addJob, singleJob, deleteJob };
+};
+
+const editJob = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const job = req.body;
+  if (!id) {
+    return res.status(400).json({ error: "Please provide an ID" });
+  } else if (!mongoose.isValidObjectId(id)) {
+    return res.status(400).json({ error: "Invalid ID" });
+  } else if (
+    !job.title ||
+    !job.type ||
+    !job.company.name ||
+    !job.company.description ||
+    !job.company.contactEmail ||
+    !job.company.contactPhone ||
+    !job.location ||
+    !job.salary ||
+    !job.description
+  ) {
+    return res.status(400).json({ error: "Please fill all fields" });
+  }
+  try {
+    await Job.findByIdAndUpdate(id, job, { new: true });
+    res.json({ message: "Job Updated Successfully!" });
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+};
+export { allJobs, addJob, singleJob, deleteJob, editJob };
