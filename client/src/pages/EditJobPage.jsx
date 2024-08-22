@@ -18,7 +18,7 @@ const EditJobPage = ({ editJob }) => {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/jobs/${id}`);
+        const res = await fetch(`${import.meta.env.VITE_SERVER}/api/jobs/${id}`);
         const data = await res.json();
 
         setTitle(data.title);

@@ -15,7 +15,7 @@ import EditJobPage from "./pages/EditJobPage";
 
 const App = () => {
   const addJob = async (newJob) => {
-    const res = await fetch("http://localhost:3000/api/jobs", {
+    const res = await fetch(`${import.meta.env.VITE_SERVER}/api/jobs`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +25,7 @@ const App = () => {
     return;
   };
   const editJob = async (job, id) => {
-    const res = await fetch(`http://localhost:3000/api/jobs/${id}`, {
+    const res = await fetch(`${import.meta.env.VITE_SERVER}/api/jobs/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

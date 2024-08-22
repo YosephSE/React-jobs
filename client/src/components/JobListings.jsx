@@ -10,8 +10,8 @@ const JobListings = ({ isHome = false }) => {
   useEffect(() => {
     const fetchJobs = async () => {
       const apiUrl = isHome
-        ? "http://localhost:3000/api/jobs?limit=3"
-        : "http://localhost:3000/api/jobs";
+        ? `${import.meta.env.VITE_SERVER}/api/jobs?limit=3`
+        : `${import.meta.env.VITE_SERVER}/api/jobs`;
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();
