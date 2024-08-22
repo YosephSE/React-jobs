@@ -4,7 +4,7 @@ import Spinner from "../components/Spinner";
 import { FaArrowLeft, FaLocationDot } from "react-icons/fa6";
 import { toast } from "react-toastify";
 const deleteJob = async (id) => {
-  const res = await fetch(`http://localhost:8000/jobs/${id}`,{
+  const res = await fetch(`http://localhost:3000/api/jobs/${id}`,{
     method: 'DELETE',
   })
   return;
@@ -26,7 +26,7 @@ const JobPage = () => {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/jobs/${id}`);
+        const res = await fetch(`http://localhost:3000/api/jobs/${id}`);
         const data = await res.json();
         setJob(data);
       } catch (e) {
