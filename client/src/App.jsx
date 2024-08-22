@@ -13,18 +13,17 @@ import NotFoundPage from "./pages/NotFoundPage";
 import AddJobPage from "./pages/AddJobPage";
 
 const App = () => {
-  const addJob = async (newJob) =>{
-    const res = await fetch('http://localhost:8000/jobs',{
-      method: 'POST',
+  const addJob = async (newJob) => {
+    const res = await fetch("http://localhost:3000/api/jobs", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(newJob)
-    })
+      body: JSON.stringify(newJob),
+    });
     return;
-  }
+  };
 
-  
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
