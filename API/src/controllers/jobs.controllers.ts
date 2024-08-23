@@ -6,7 +6,7 @@ const allJobs = async (req: Request, res: Response) => {
   try {
     const limit = parseInt(req.query.limit as string) || 100;
 
-    const jobs = await Job.find().limit(limit);
+    const jobs = await Job.find().sort({ updatedAt: -1 }).limit(limit);
     res.json(jobs);
   } catch (error) {
     res.status(500).json({ error: error });
